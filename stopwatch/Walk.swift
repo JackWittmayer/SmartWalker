@@ -16,6 +16,7 @@ class Walk: NSObject, NSCoding {
     var name: String
     //var photo: UIImage?
     var time: Double
+    var vehicle: Int // 0 = walking, 1 = running, 2 = skateboard, 3 = bike, 4 = motor vehicle
     
     //MARK: Archiving Paths
     
@@ -28,10 +29,11 @@ class Walk: NSObject, NSCoding {
         static let name = "name"
         //static let photo = "photo"
         static let time = "time"
+        static let vehicle = "vehicle"
     }
     //MARK: Initialization
     
-    init?(name: String, time: Double)
+    init?(name: String, time: Double, vehicle: Int)
     {
         //Make sure walk has a name and nonnegative time
         if name.isEmpty || time < 0
@@ -43,6 +45,7 @@ class Walk: NSObject, NSCoding {
         self.name = name
         //self.photo = photo
         self.time = time
+        self.vehicle = vehicle
     }
     
     //MARK: NSCoding
@@ -50,6 +53,7 @@ class Walk: NSObject, NSCoding {
         aCoder.encode(name, forKey: PropertyKey.name)
         //aCoder.encode(photo, forKey: PropertyKey.photo)
         aCoder.encode(time, forKey: PropertyKey.time)
+        aCoder.encode(vehicle, forKey: PropertyKey.vehicle)
     }
     required convenience init?(coder aDecoder: NSCoder) {
         // The name is required. If we canot decode a name string, the initializer should fail.
@@ -62,8 +66,9 @@ class Walk: NSObject, NSCoding {
         // Because photo is an optional property of Walk, just use conditional cast.
         //let photo = aDecoder.decodeObject(forKey: PropertyKey.photo) as? UIImage
         let time = aDecoder.decodeDouble(forKey: PropertyKey.time)
+        let vehicle = aDecoder.decodeInteger(forKey: PropertyKey.vehicle)
         
         // Must call designated initializer.
-        self.init(name: name, time: time)
+        self.init(name: name, time: time, vehicle: vehicle)
     }
 }

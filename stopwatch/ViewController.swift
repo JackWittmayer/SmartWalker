@@ -50,6 +50,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     var isPlaying = false
     var backGroundTime = Date()
     var paused = true
+    var vehicle_selection = 0
     //MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -94,6 +95,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         let date = Date()
         let dateString = convertDateToString(date: date)
         var name = ""
+        
         if let Name = nameTextField.text
         {
             if Name.isEmpty
@@ -108,7 +110,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         // let photo = photoImageView.image
         let time = counter
         // Set the walk to be passed to WalkTableViewController after the unwind segue.
-        walk = Walk(name: name, time: Double(time))
+        walk = Walk(name: name, time: Double(time), vehicle: vehicle_selection)
     }
     override func viewDidLoad()
     {

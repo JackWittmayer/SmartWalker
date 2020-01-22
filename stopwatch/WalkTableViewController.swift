@@ -168,16 +168,16 @@ class WalkTableViewController: UITableViewController {
 //        let photo1 = UIImage(named: "defaultPhoto")
 //        let photo2 = UIImage(named: "defaultPhoto")
 //        let photo3 = UIImage(named: "defaultPhoto")
-        guard let walk1 = Walk(name: "Marston to Hume", time: 15.0) else {
-            fatalError("unable to instantiate walk1")
-        }
-        guard let walk2 = Walk(name: "Dining hall to Hume", time: 15.0) else {
-            fatalError("unable to instantiate walk2")
-        }
-        guard let walk3 = Walk(name: "Little Hall to library west", time: 15.0) else {
-            fatalError("unable to instantiate walk3")
-        }
-        walks+=[walk1, walk2, walk3]
+//        guard let walk1 = Walk(name: "Marston to Hume", time: 15.0) else {
+//            fatalError("unable to instantiate walk1")
+//        }
+//        guard let walk2 = Walk(name: "Dining hall to Hume", time: 15.0) else {
+//            fatalError("unable to instantiate walk2")
+//        }
+//        guard let walk3 = Walk(name: "Little Hall to library west", time: 15.0) else {
+//            fatalError("unable to instantiate walk3")
+//        }
+//        walks+=[walk1, walk2, walk3]
     }
     @IBAction func unwindToWalkList(sender: UIStoryboardSegue)
     {
