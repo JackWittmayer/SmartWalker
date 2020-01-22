@@ -13,6 +13,7 @@ class WalkTableViewController: UITableViewController {
 
     //MARK: Properties
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var editRouteButton: UIBarButtonItem!
     var route: Route?
     var walks = [Walk]()
     override func viewDidLoad() {
@@ -31,6 +32,9 @@ class WalkTableViewController: UITableViewController {
             loadSampleWalks()
             print("Loading sample walks...")
         }
+        self.navigationController?.isToolbarHidden = false
+        
+        
     }
 
     // MARK: - Table view data source
@@ -55,7 +59,7 @@ class WalkTableViewController: UITableViewController {
         let walk = walks[indexPath.row]
         
         cell.nameLabel.text = walk.name
-        cell.photoImageView.image = walk.photo
+        //cell.photoImageView.image = walk.photo
         cell.timeLabel.text = convertSecondsToMinutes(counter: walk.time)
 
         return cell
@@ -134,6 +138,14 @@ class WalkTableViewController: UITableViewController {
                 }
                 let selectedWalk = walks[indexPath.row]
                 walkDetailViewController.walk = selectedWalk
+            case "editRouteInfo":
+                os_log("Editing route info...", log:OSLog.default, type: .debug)
+                guard let RouteViewController = segue.destination as? RouteViewController
+                    else
+                {
+                    fatalError("Unexpected destination: \(segue.destination)")
+                }
+                RouteViewController.route = self.route
                 
             default:
                 fatalError("Unexpected Segue Identifier; \(segue.identifier)")
@@ -153,16 +165,16 @@ class WalkTableViewController: UITableViewController {
     
     private func loadSampleWalks()
     {
-        let photo1 = UIImage(named: "defaultPhoto")
-        let photo2 = UIImage(named: "defaultPhoto")
-        let photo3 = UIImage(named: "defaultPhoto")
-        guard let walk1 = Walk(name: "Marston to Hume", photo: photo1, time: 15.0) else {
+//        let photo1 = UIImage(named: "defaultPhoto")
+//        let photo2 = UIImage(named: "defaultPhoto")
+//        let photo3 = UIImage(named: "defaultPhoto")
+        guard let walk1 = Walk(name: "Marston to Hume", time: 15.0) else {
             fatalError("unable to instantiate walk1")
         }
-        guard let walk2 = Walk(name: "Dining hall to Hume", photo: photo2, time: 15.0) else {
+        guard let walk2 = Walk(name: "Dining hall to Hume", time: 15.0) else {
             fatalError("unable to instantiate walk2")
         }
-        guard let walk3 = Walk(name: "Little Hall to library west", photo: photo3, time: 15.0) else {
+        guard let walk3 = Walk(name: "Little Hall to library west", time: 15.0) else {
             fatalError("unable to instantiate walk3")
         }
         walks+=[walk1, walk2, walk3]
@@ -192,15 +204,15 @@ class WalkTableViewController: UITableViewController {
     }
     private func saveWalks()
     {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(walks, toFile: Walk.ArchiveURL.path)
-        if isSuccessfulSave
-        {
-            os_log("Walks successfully saved.", log: OSLog.default, type: .debug)
-        }
-        else
-        {
-            os_log("Failed to save walks...", log: OSLog.default, type: .error)
-        }
+//        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(walks, toFile: Walk.ArchiveURL.path)
+//        if isSuccessfulSave
+//        {
+//            os_log("Walks successfully saved.", log: OSLog.default, type: .debug)
+//        }
+//        else
+//        {
+//            os_log("Failed to save walks...", log: OSLog.default, type: .error)
+//        }
     }
     private func loadWalks() -> [Walk]?
     {

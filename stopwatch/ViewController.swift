@@ -63,6 +63,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     func textFieldDidEndEditing(_ textField: UITextField) {
         //updateSaveButtonState()
         navigationItem.title = textField.text
+        saveButton.isEnabled = true
     }
     //MARK: Navigation
     @IBAction func cancel(_ sender: Any) {
@@ -107,7 +108,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         // let photo = photoImageView.image
         let time = counter
         // Set the walk to be passed to WalkTableViewController after the unwind segue.
-        walk = Walk(name: name, photo: nil, time: Double(time))
+        walk = Walk(name: name, time: Double(time))
     }
     override func viewDidLoad()
     {

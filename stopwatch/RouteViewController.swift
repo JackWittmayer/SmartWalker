@@ -77,9 +77,18 @@ class RouteViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
             let photo = photoSelect.image
             let start = startField.text ?? ""
             let end = endField.text ?? ""
-            let walks = [Walk]()
+            var finalWalks: [Walk]
+            finalWalks = []
+            if let Route = route
+            {
+                if let walks = Route.walks
+                {
+                    finalWalks = walks
+                }
+            }            
+            
             // Set the Route to be passed to RouteTableViewController after the unwind segue.
-            route = Route(name: name, photo: photo, start: start, end: end, walks: walks)
+            route = Route(name: name, photo: photo, start: start, end: end, walks: finalWalks)
             print("About to to exit...")
         }
     override func viewDidLoad()

@@ -14,7 +14,7 @@ class Walk: NSObject, NSCoding {
     //MARK: Properties
     
     var name: String
-    var photo: UIImage?
+    //var photo: UIImage?
     var time: Double
     
     //MARK: Archiving Paths
@@ -26,12 +26,12 @@ class Walk: NSObject, NSCoding {
     struct PropertyKey
     {
         static let name = "name"
-        static let photo = "photo"
+        //static let photo = "photo"
         static let time = "time"
     }
     //MARK: Initialization
     
-    init?(name: String, photo: UIImage?, time: Double)
+    init?(name: String, time: Double)
     {
         //Make sure walk has a name and nonnegative time
         if name.isEmpty || time < 0
@@ -41,14 +41,14 @@ class Walk: NSObject, NSCoding {
         
         // Initialize stored properties.
         self.name = name
-        self.photo = photo
+        //self.photo = photo
         self.time = time
     }
     
     //MARK: NSCoding
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: PropertyKey.name)
-        aCoder.encode(photo, forKey: PropertyKey.photo)
+        //aCoder.encode(photo, forKey: PropertyKey.photo)
         aCoder.encode(time, forKey: PropertyKey.time)
     }
     required convenience init?(coder aDecoder: NSCoder) {
@@ -60,10 +60,10 @@ class Walk: NSObject, NSCoding {
             return nil
         }
         // Because photo is an optional property of Walk, just use conditional cast.
-        let photo = aDecoder.decodeObject(forKey: PropertyKey.photo) as? UIImage
+        //let photo = aDecoder.decodeObject(forKey: PropertyKey.photo) as? UIImage
         let time = aDecoder.decodeDouble(forKey: PropertyKey.time)
         
         // Must call designated initializer.
-        self.init(name: name, photo: photo, time: time)
+        self.init(name: name, time: time)
     }
 }

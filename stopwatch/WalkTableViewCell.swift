@@ -13,7 +13,7 @@ class WalkTableViewCell: UITableViewCell {
     //MARK: Properties
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var photoImageView: UIImageView!
+    //@IBOutlet weak var photoImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
