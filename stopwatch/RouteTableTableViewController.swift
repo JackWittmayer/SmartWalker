@@ -13,6 +13,10 @@ class RouteTableViewController: UITableViewController {
 
     //MARK: Properties
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBAction func save(_ sender: Any) {
+        saveRoutes()
+    }
     var Routes = [Route]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,8 +128,14 @@ class RouteTableViewController: UITableViewController {
             {
                 fatalError("The selected cell is not being displayed by the table")
             }
-            let selectedRoute = Routes[indexPath.row]
-            RouteDetailViewController.route = selectedRoute
+            let passedRoute = Routes[indexPath.row]
+//            var selectedRoute = Routes[indexPath.row]
+//            let selectedRoute2 = selectedRoute
+//            let photo1 = UIImage(named: "defaultPhoto")
+//            selectedRoute = Route(name: "Marston to Hume", photo: photo1, start: "Marson", end: "Hume", walks: [Walk]())!
+            //RouteDetailViewController.route = selectedRoute2
+          let photo1 = UIImage(named: "defaultPhoto")
+            RouteDetailViewController.route = Route(name: passedRoute.name, photo: passedRoute.photo, start: passedRoute.start, end: passedRoute.end, walks: passedRoute.walks!)
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
         }
@@ -158,9 +168,18 @@ class RouteTableViewController: UITableViewController {
             {
                 if let selectedIndexPath = tableView.indexPathForSelectedRow
                 {
-                    // Update an existing Route.
-                    Routes[selectedIndexPath.row] = route
-                    tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                    // Check if new route is the same as old route
+                    if (!routesAreEqual(route1: Routes[selectedIndexPath.row], route2: route))
+                    {
+                        // Update an existing Route.
+                        Routes[selectedIndexPath.row] = route
+                        tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                        saveRoutes()
+                    }
+                    else
+                    {
+                        os_log("Route not modified so not saving...")
+                    }
                 }
                 else
                 {
@@ -168,31 +187,45 @@ class RouteTableViewController: UITableViewController {
                     let newIndexPath = IndexPath(row: Routes.count, section: 0)
                     Routes.append(route)
                     tableView.insertRows(at: [newIndexPath], with: .automatic)
+                    saveRoutes()
                 }
-                saveRoutes()
             }
         else if let sourceViewController = sender.source as? WalkTableViewController, let route = sourceViewController.route
         {
             if let selectedIndexPath = tableView.indexPathForSelectedRow
             {
                 // Update an existing Route.
-                Routes[selectedIndexPath.row] = route
-                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                // Check if new route is the same as old route
+                if (!routesAreEqual(route1: Routes[selectedIndexPath.row], route2: route))
+                {
+                    Routes[selectedIndexPath.row] = route
+                    tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                    saveRoutes()
+                }
+                else
+                {
+                    os_log("Route not modified so not saving...")
+                }
             }
-            saveRoutes()
         }
-        //Save the Routes.
     }
     private func saveRoutes()
     {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(Routes, toFile: Route.ArchiveURL.path)
-        if isSuccessfulSave
-        {
-            os_log("Routes successfully saved.", log: OSLog.default, type: .debug)
-        }
-        else
-        {
-            os_log("Failed to save routes...", log: OSLog.default, type: .error)
+        print("Saving...")
+        self.saveButton.isEnabled = false
+        DispatchQueue.global(qos: .utility).async {
+            let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(self.Routes, toFile: Route.ArchiveURL.path)
+            if isSuccessfulSave
+            {
+                os_log("Routes successfully saved.", log: OSLog.default, type: .debug)
+            }
+            else
+            {
+                os_log("Failed to save routes...", log: OSLog.default, type: .error)
+            }
+            DispatchQueue.main.async {
+                self.saveButton.isEnabled = true
+            }
         }
     }
     private func loadRoutes() -> [Route]?

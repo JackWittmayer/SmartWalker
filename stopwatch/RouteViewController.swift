@@ -77,9 +77,18 @@ class RouteViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
             let photo = photoSelect.image
             let start = startField.text ?? ""
             let end = endField.text ?? ""
-            let walks = [Walk]()
+            var finalWalks: [Walk]
+            finalWalks = []
+            if let Route = route
+            {
+                if let walks = Route.walks
+                {
+                    finalWalks = walks
+                }
+            }            
+            
             // Set the Route to be passed to RouteTableViewController after the unwind segue.
-            route = Route(name: name, photo: nil, start: start, end: end, walks: walks)
+            route = Route(name: name, photo: photo, start: start, end: end, walks: finalWalks)
             print("About to to exit...")
         }
     override func viewDidLoad()
@@ -114,6 +123,21 @@ class RouteViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         saveButton.isEnabled = !text.isEmpty && !text2.isEmpty
     }
     
+    //MARK: UIImagePickerControllerDelegate
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // Dismiss the picker if the user canceled.
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.dismiss(animated: true, completion: nil)
+        photoSelect.image = info[.originalImage] as? UIImage
+        dismiss(animated: true, completion: nil)
+    }
+    
     //MARK: Actions
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         // Hide the keyboard.
@@ -122,8 +146,11 @@ class RouteViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         endField.resignFirstResponder()
         // UIImagePickerController is a view controller that lets a user pick media from their photo library.
         let imagePickerController = UIImagePickerController()
-        //Only allow photos to be picked, not taken.
-        imagePickerController.sourceType = .photoLibrary
+        //Allow photos to be picked and taken
+        imagePickerController.sourceType = .camera
+        // Make sure ViewController is notified when the user picks an image.
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
     }
     
 }
