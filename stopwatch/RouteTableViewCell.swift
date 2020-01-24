@@ -15,7 +15,11 @@ class RouteTableViewCell: UITableViewCell {
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var startLabel: UILabel!
     @IBOutlet weak var endLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var WalkTimeLabel: UILabel!
+    @IBOutlet weak var RunTimeLabel: UILabel!
+    @IBOutlet weak var SkateboardTimeLabel: UILabel!
+    @IBOutlet weak var BikeTimeLabel: UILabel!
+    @IBOutlet weak var CarTimeLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

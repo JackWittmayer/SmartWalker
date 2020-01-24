@@ -61,6 +61,7 @@ class WalkTableViewController: UITableViewController {
         cell.nameLabel.text = walk.name
         //cell.photoImageView.image = walk.photo
         cell.timeLabel.text = convertSecondsToMinutes(counter: walk.time)
+        setVehicleImage(cell: cell, walk: walk)
 
         return cell
     }
@@ -223,6 +224,23 @@ class WalkTableViewController: UITableViewController {
         else
         {
             return nil
+        }
+    }
+    private func setVehicleImage(cell: WalkTableViewCell, walk: Walk)
+    {
+        switch walk.vehicle {
+        case 0:
+            cell.vehicleDisplay.image = UIImage(named: "walking_icon")
+        case 1:
+            cell.vehicleDisplay.image = UIImage(named: "running_icon")
+        case 2:
+            cell.vehicleDisplay.image = UIImage(named: "skateboarding_icon")
+        case 3:
+            cell.vehicleDisplay.image = UIImage(named: "biking_icon")
+        case 4:
+            cell.vehicleDisplay.image = UIImage(named: "driving_icon")
+        default:
+            fatalError("Unknown vehicle specified")
         }
     }
 }

@@ -234,6 +234,7 @@ class RouteTableViewController: UITableViewController {
     }
     private func findAverageTime(route: Route) -> Double
     {
+        // TODO: change findAverageTime to return list of times, one item for each vehicle
         var average = 0.0
         if let walks = route.walks
         {

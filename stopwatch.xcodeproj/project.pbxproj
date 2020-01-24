@@ -20,7 +20,7 @@
 		ADC17F0823C40B42003BD0C9 /* WalkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC17F0723C40B42003BD0C9 /* WalkTableViewCell.swift */; };
 		ADCD28B923CBB69B008F59B4 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD28B823CBB69B008F59B4 /* RouteViewController.swift */; };
 		ADCD28BB23CBB8D3008F59B4 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD28BA23CBB8D3008F59B4 /* Route.swift */; };
-		ADCD28BE23CBC00B008F59B4 /* RouteTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD28BD23CBC00B008F59B4 /* RouteTableTableViewController.swift */; };
+		ADCD28BE23CBC00B008F59B4 /* RouteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD28BD23CBC00B008F59B4 /* RouteTableViewController.swift */; };
 		ADCD28C023CBC08F008F59B4 /* RouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD28BF23CBC08F008F59B4 /* RouteTableViewCell.swift */; };
 		ADFA547023C77746008A5640 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA546F23C77746008A5640 /* Helper.swift */; };
 /* End PBXBuildFile section */
@@ -62,7 +62,7 @@
 		ADC17F0723C40B42003BD0C9 /* WalkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkTableViewCell.swift; sourceTree = "<group>"; };
 		ADCD28B823CBB69B008F59B4 /* RouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 		ADCD28BA23CBB8D3008F59B4 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
-		ADCD28BD23CBC00B008F59B4 /* RouteTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTableTableViewController.swift; sourceTree = "<group>"; };
+		ADCD28BD23CBC00B008F59B4 /* RouteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTableViewController.swift; sourceTree = "<group>"; };
 		ADCD28BF23CBC08F008F59B4 /* RouteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTableViewCell.swift; sourceTree = "<group>"; };
 		ADFA546F23C77746008A5640 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,7 +126,7 @@
 				56A3DE9023BAF26700FE96A8 /* LaunchScreen.storyboard */,
 				56A3DE9323BAF26700FE96A8 /* Info.plist */,
 				AD64560D23C3EE0A00AED113 /* Main.storyboard */,
-				ADCD28BD23CBC00B008F59B4 /* RouteTableTableViewController.swift */,
+				ADCD28BD23CBC00B008F59B4 /* RouteTableViewController.swift */,
 				ADC17F0723C40B42003BD0C9 /* WalkTableViewCell.swift */,
 				AD121FBD23C40D4800FE951C /* WalkTableViewController.swift */,
 				ADCD28BF23CBC08F008F59B4 /* RouteTableViewCell.swift */,
@@ -284,7 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADCD28C023CBC08F008F59B4 /* RouteTableViewCell.swift in Sources */,
-				ADCD28BE23CBC00B008F59B4 /* RouteTableTableViewController.swift in Sources */,
+				ADCD28BE23CBC00B008F59B4 /* RouteTableViewController.swift in Sources */,
 				ADCD28BB23CBB8D3008F59B4 /* Route.swift in Sources */,
 				AD64561D23C408F600AED113 /* ViewController.swift in Sources */,
 				ADFA547023C77746008A5640 /* Helper.swift in Sources */,

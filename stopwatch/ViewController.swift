@@ -14,6 +14,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var walkButton: UIImageView!
+    @IBOutlet weak var runButton: UIImageView!
+    @IBOutlet weak var carButton: UIImageView!
+    @IBOutlet weak var bikeButton: UIImageView!
+    @IBOutlet weak var skateboardButton: UIImageView!
     //MARK: Timer Actions
     @IBAction func startTimer(_ sender: Any) {
         if(isPlaying) {
@@ -42,7 +47,27 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         counter = 0.0
         timeLabel.text = String(counter)
     }
-
+    @IBAction func selectWalkButton(_ sender: Any) {
+        vehicle_selection = 0
+        updateVehicleButtons()
+    }
+    @IBAction func selectRunButton(_ sender: Any) {
+        vehicle_selection = 1
+        updateVehicleButtons()
+    }
+    @IBAction func selectSkateboardButton(_ sender: Any) {
+        vehicle_selection = 2
+        updateVehicleButtons()
+    }
+    @IBAction func selectBikeButton(_ sender: Any) {
+        vehicle_selection = 3
+        updateVehicleButtons()
+    }
+    @IBAction func selectCarButton(_ sender: Any) {
+        vehicle_selection = 4
+        updateVehicleButtons()
+    }
+    
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var walk: Walk?
     var counter = 0.0
@@ -50,7 +75,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     var isPlaying = false
     var backGroundTime = Date()
     var paused = true
-    var vehicle_selection = 0
+    var vehicle_selection = 0 // 0 = walk, 1 = run, 2 = skateboard, 3 = bike, 4 = car
     //MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -115,7 +140,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
         timeLabel.text = String(counter)
         pauseButton.isEnabled = false
         saveButton.isEnabled = true
@@ -133,6 +157,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
             //photoImageView.image = walk.photo
             timeLabel.text = convertSecondsToMinutes(counter: walk.time)
             counter = walk.time
+            vehicle_selection = walk.vehicle
+            updateVehicleButtons()
         }
         
     }
@@ -166,6 +192,29 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     {
         counter = counter + 0.1
         timeLabel.text = convertSecondsToMinutes(counter: counter)
+    }
+    
+    private func updateVehicleButtons()
+    {
+        walkButton.backgroundColor = nil
+        runButton.backgroundColor = nil
+        skateboardButton.backgroundColor = nil
+        bikeButton.backgroundColor = nil
+        carButton.backgroundColor = nil
+        switch vehicle_selection {
+        case 0:
+            walkButton.backgroundColor = UIColor.lightGray
+        case 1:
+            runButton.backgroundColor = UIColor.lightGray
+        case 2:
+            skateboardButton.backgroundColor = UIColor.lightGray
+        case 3:
+            bikeButton.backgroundColor = UIColor.lightGray
+        case 4:
+            carButton.backgroundColor = UIColor.lightGray
+        default:
+            fatalError("Unknown button selected")
+        }
     }
     
 //    //MARK: Private Methods
