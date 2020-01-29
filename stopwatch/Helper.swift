@@ -20,6 +20,19 @@ func convertSecondsToMinutes(counter: Double) -> String
     timeLabelTime += String(format: "%.1f", seconds)
     return timeLabelTime
 }
+func convertSecondsToMinutesWithoutMili(counter: Double) -> String
+{
+    var timeLabelTime = ""
+    let minutes = Int(counter/60.0)
+    let seconds = counter-Double(minutes*60)
+    timeLabelTime += String(minutes) + ":"
+    if seconds <= 10
+    {
+        timeLabelTime += "0"
+    }
+    timeLabelTime += String(format: "%.0f", seconds)
+    return timeLabelTime
+}
 
 func convertDateToString(date: Date) -> String
 {
@@ -85,5 +98,6 @@ func walksAreEqual(walk1: Walk, walk2: Walk) -> Bool
 {
     if (walk1.name != walk2.name) {return false}
     else if (walk1.time != walk2.time) {return false}
+    else if (walk1.vehicle != walk2.vehicle) {return false}
     else {return true}
 }

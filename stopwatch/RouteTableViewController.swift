@@ -58,7 +58,25 @@ class RouteTableViewController: UITableViewController {
         cell.photoImageView.image = Route.photo
         cell.startLabel.text = "Start: " + Route.start
         cell.endLabel.text = "End: " + Route.end
-        cell.timeLabel.text = convertSecondsToMinutes(counter: findAverageTime(route: Route))
+        cell.vehicleTimeLabels = [cell.WalkTimeLabel, cell.RunTimeLabel, cell.SkateboardTimeLabel, cell.BikeTimeLabel, cell.CarTimeLabel]
+        cell.vehicleIcons = [cell.walkingIcon, cell.runningIcon, cell.skateboardingIcon, cell.bikingIcon, cell.drivingIcon]
+        let times = findAverageTime(route: Route)
+        var i = 0
+        // Iterate over times, timeLables, and vehicle icons
+        for (time, (timeLabel, icon)) in zip(times, (zip(cell.vehicleTimeLabels, cell.vehicleIcons)))
+        {
+            if time != 0.0
+            {
+                timeLabel.text = convertSecondsToMinutesWithoutMili(counter: time)
+            }
+            else
+            {
+                icon.isHidden = true
+                timeLabel.isHidden = true
+            }
+            print(i)
+            i += 1
+        }
 
         return cell
     }
@@ -232,21 +250,30 @@ class RouteTableViewController: UITableViewController {
     {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Route.ArchiveURL.path) as? [Route]
     }
-    private func findAverageTime(route: Route) -> Double
+    private func findAverageTime(route: Route) -> [Double]
     {
-        // TODO: change findAverageTime to return list of times, one item for each vehicle
-        var average = 0.0
+        //TODO: change findAverageTime to return list of times, one item for each vehicle
+        
+        var averages = [0.0, 0.0, 0.0, 0.0, 0.0]
+        var walk_counts = [0, 0, 0, 0, 0]
         if let walks = route.walks
         {
             if walks.count != 0
             {
                 for walk in walks
                 {
-                    average+=walk.time
+                    averages[walk.vehicle] += walk.time
+                    walk_counts[walk.vehicle] += 1
                 }
-                average /= Double(walks.count)
+                for (var average, count) in zip(averages, walk_counts)
+                {
+                    if count != 0
+                    {
+                        average /= Double(count)
+                    }
+                }
             }
         }
-        return average
+        return averages
     }
 }

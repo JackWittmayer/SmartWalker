@@ -11,6 +11,11 @@ import UIKit
 class RouteTableViewCell: UITableViewCell {
 
     //MARK: Properties
+    @IBOutlet weak var walkingIcon: UIImageView!
+    @IBOutlet weak var runningIcon: UIImageView!
+    @IBOutlet weak var skateboardingIcon: UIImageView!
+    @IBOutlet weak var bikingIcon: UIImageView!
+    @IBOutlet weak var drivingIcon: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var startLabel: UILabel!
@@ -20,6 +25,8 @@ class RouteTableViewCell: UITableViewCell {
     @IBOutlet weak var SkateboardTimeLabel: UILabel!
     @IBOutlet weak var BikeTimeLabel: UILabel!
     @IBOutlet weak var CarTimeLabel: UILabel!
+    var vehicleTimeLabels: [UILabel] = []
+    var vehicleIcons: [UIImageView] = []
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -33,5 +40,16 @@ class RouteTableViewCell: UITableViewCell {
     
     //MARK: Actions
 
-
+    //MARK: Initialization
+    
+//    required override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+//        super.init(style: style, reuseIdentifier: reuseIdentifier)
+//        vehicleTimeLabels = [WalkTimeLabel, RunTimeLabel, SkateboardTimeLabel, BikeTimeLabel, CarTimeLabel]
+//        vehicleIcons = [walkingIcon, runningIcon, skateboardingIcon, bikingIcon, drivingIcon]
+//    }
+//
+//    required convenience init?(coder aDecoder: NSCoder) {
+//        self.init()
+//    }
+    
 }
