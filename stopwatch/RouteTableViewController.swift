@@ -61,7 +61,7 @@ class RouteTableViewController: UITableViewController {
         cell.vehicleTimeLabels = [cell.WalkTimeLabel, cell.RunTimeLabel, cell.SkateboardTimeLabel, cell.BikeTimeLabel, cell.CarTimeLabel]
         cell.vehicleIcons = [cell.walkingIcon, cell.runningIcon, cell.skateboardingIcon, cell.bikingIcon, cell.drivingIcon]
         let times = findAverageTime(route: Route)
-        var i = 0
+        //var i = 0
         // Iterate over times, timeLables, and vehicle icons
         for (time, (timeLabel, icon)) in zip(times, (zip(cell.vehicleTimeLabels, cell.vehicleIcons)))
         {
@@ -74,8 +74,8 @@ class RouteTableViewController: UITableViewController {
                 icon.isHidden = true
                 timeLabel.isHidden = true
             }
-            print(i)
-            i += 1
+//            print(i)
+//            i += 1
         }
 
         return cell
@@ -265,11 +265,11 @@ class RouteTableViewController: UITableViewController {
                     averages[walk.vehicle] += walk.time
                     walk_counts[walk.vehicle] += 1
                 }
-                for (var average, count) in zip(averages, walk_counts)
+                for (i, count) in walk_counts.enumerated()
                 {
                     if count != 0
                     {
-                        average /= Double(count)
+                        averages[i] /= Double(count)
                     }
                 }
             }
