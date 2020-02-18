@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uiu-kK-pWx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CSR-4e-zUB">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -470,7 +470,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8W-dD-0ON" userLabel="WalkTimeLabel">
-                                                    <rect key="frame" x="22" y="0.0" width="2" height="20.333333333333332"/>
+                                                    <rect key="frame" x="22" y="0.0" width="36" height="20.333333333333332"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="vLq-Pa-0u0"/>
                                                     </constraints>
@@ -479,13 +479,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="running_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ygm-7E-61S">
-                                                    <rect key="frame" x="24" y="0.0" width="22" height="20.333333333333332"/>
+                                                    <rect key="frame" x="58" y="0.0" width="22" height="20.333333333333332"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="22" id="LiA-Dy-3yJ"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiH-wf-1m8" userLabel="RunTimeLabel">
-                                                    <rect key="frame" x="46" y="0.0" width="36" height="20.333333333333332"/>
+                                                    <rect key="frame" x="80" y="0.0" width="2" height="20.333333333333332"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="EH2-dZ-Uk8"/>
                                                     </constraints>
@@ -500,7 +500,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8N-7N-YcT" userLabel="SkateboardTimeLabel">
-                                                    <rect key="frame" x="108.66666666666666" y="0.0" width="2" height="20.333333333333332"/>
+                                                    <rect key="frame" x="108.66666666666666" y="0.0" width="36" height="20.333333333333332"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="CJZ-SJ-idd"/>
                                                     </constraints>
@@ -509,13 +509,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="biking_icon" translatesAutoresizingMaskIntoConstraints="NO" id="d6X-6G-AnL">
-                                                    <rect key="frame" x="110.66666666666666" y="0.0" width="26.666666666666657" height="20.333333333333332"/>
+                                                    <rect key="frame" x="144.66666666666666" y="0.0" width="26.666666666666657" height="20.333333333333332"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="22" id="8tm-Pi-A5d"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oN-YM-hbj" userLabel="BikeTimeLabel">
-                                                    <rect key="frame" x="137.33333333333334" y="0.0" width="36" height="20.333333333333332"/>
+                                                    <rect key="frame" x="171.33333333333331" y="0.0" width="2" height="20.333333333333332"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="tRs-7l-jLO"/>
                                                     </constraints>
@@ -605,6 +605,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0vy-KA-hkp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1144.8" y="1078.0788177339903"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="qyr-Hi-W1G">
+            <objects>
+                <viewController id="CSR-4e-zUB" customClass="MapViewController" customModule="stopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U4b-bo-2bE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="iSG-qD-yEh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="iSG-qD-yEh" firstAttribute="trailing" secondItem="tSc-WD-T1z" secondAttribute="trailing" id="Sgl-ti-Zzy"/>
+                            <constraint firstAttribute="bottom" secondItem="iSG-qD-yEh" secondAttribute="bottom" id="T8c-OQ-KFR"/>
+                            <constraint firstItem="iSG-qD-yEh" firstAttribute="top" secondItem="U4b-bo-2bE" secondAttribute="top" id="os4-zz-Eqn"/>
+                            <constraint firstItem="iSG-qD-yEh" firstAttribute="leading" secondItem="tSc-WD-T1z" secondAttribute="leading" id="zxD-H6-Fs3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tSc-WD-T1z"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="iSG-qD-yEh" id="l9o-t4-qtm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F0D-kd-1na" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-607.20000000000005" y="1081.7733990147783"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hsy-VN-tox">

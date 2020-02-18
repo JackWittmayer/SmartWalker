@@ -13,6 +13,7 @@
 		56A3DE9223BAF26700FE96A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56A3DE9023BAF26700FE96A8 /* LaunchScreen.storyboard */; };
 		56A3DE9D23BAF26700FE96A8 /* stopwatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A3DE9C23BAF26700FE96A8 /* stopwatchTests.swift */; };
 		56A3DEA823BAF26700FE96A8 /* stopwatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A3DEA723BAF26700FE96A8 /* stopwatchUITests.swift */; };
+		AD0E864F23FB5A4100860651 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0E864E23FB5A4100860651 /* MapViewController.swift */; };
 		AD121FBE23C40D4800FE951C /* WalkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD121FBD23C40D4800FE951C /* WalkTableViewController.swift */; };
 		AD64560F23C3EE0A00AED113 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD64560D23C3EE0A00AED113 /* Main.storyboard */; };
 		AD64561123C3F27300AED113 /* Walk.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD64561023C3F27300AED113 /* Walk.swift */; };
@@ -55,6 +56,7 @@
 		56A3DEA323BAF26700FE96A8 /* stopwatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = stopwatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A3DEA723BAF26700FE96A8 /* stopwatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stopwatchUITests.swift; sourceTree = "<group>"; };
 		56A3DEA923BAF26700FE96A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD0E864E23FB5A4100860651 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AD121FBD23C40D4800FE951C /* WalkTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkTableViewController.swift; sourceTree = "<group>"; };
 		AD64560E23C3EE0A00AED113 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AD64561023C3F27300AED113 /* Walk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walk.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				56A3DE9323BAF26700FE96A8 /* Info.plist */,
 				AD64560D23C3EE0A00AED113 /* Main.storyboard */,
 				ADCD28BD23CBC00B008F59B4 /* RouteTableViewController.swift */,
+				AD0E864E23FB5A4100860651 /* MapViewController.swift */,
 				ADC17F0723C40B42003BD0C9 /* WalkTableViewCell.swift */,
 				AD121FBD23C40D4800FE951C /* WalkTableViewController.swift */,
 				ADCD28BF23CBC08F008F59B4 /* RouteTableViewCell.swift */,
@@ -290,6 +293,7 @@
 				ADFA547023C77746008A5640 /* Helper.swift in Sources */,
 				ADCD28B923CBB69B008F59B4 /* RouteViewController.swift in Sources */,
 				AD64561123C3F27300AED113 /* Walk.swift in Sources */,
+				AD0E864F23FB5A4100860651 /* MapViewController.swift in Sources */,
 				AD121FBE23C40D4800FE951C /* WalkTableViewController.swift in Sources */,
 				56A3DE8623BAF26000FE96A8 /* AppDelegate.swift in Sources */,
 				ADC17F0823C40B42003BD0C9 /* WalkTableViewCell.swift in Sources */,
