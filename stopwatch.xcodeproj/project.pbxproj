@@ -19,6 +19,7 @@
 		AD64561123C3F27300AED113 /* Walk.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD64561023C3F27300AED113 /* Walk.swift */; };
 		AD64561D23C408F600AED113 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD64561C23C408F600AED113 /* ViewController.swift */; };
 		ADC17F0823C40B42003BD0C9 /* WalkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC17F0723C40B42003BD0C9 /* WalkTableViewCell.swift */; };
+		ADC9B76223FF55D10038A9D9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC9B76123FF55D10038A9D9 /* MapKit.framework */; };
 		ADCD28B923CBB69B008F59B4 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD28B823CBB69B008F59B4 /* RouteViewController.swift */; };
 		ADCD28BB23CBB8D3008F59B4 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD28BA23CBB8D3008F59B4 /* Route.swift */; };
 		ADCD28BE23CBC00B008F59B4 /* RouteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCD28BD23CBC00B008F59B4 /* RouteTableViewController.swift */; };
@@ -62,6 +63,7 @@
 		AD64561023C3F27300AED113 /* Walk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walk.swift; sourceTree = "<group>"; };
 		AD64561C23C408F600AED113 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ADC17F0723C40B42003BD0C9 /* WalkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkTableViewCell.swift; sourceTree = "<group>"; };
+		ADC9B76123FF55D10038A9D9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		ADCD28B823CBB69B008F59B4 /* RouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 		ADCD28BA23CBB8D3008F59B4 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		ADCD28BD23CBC00B008F59B4 /* RouteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTableViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC9B76223FF55D10038A9D9 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +104,7 @@
 				56A3DE9B23BAF26700FE96A8 /* stopwatchTests */,
 				56A3DEA623BAF26700FE96A8 /* stopwatchUITests */,
 				56A3DE8323BAF26000FE96A8 /* Products */,
+				ADC9B76023FF55D10038A9D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +157,14 @@
 				56A3DEA923BAF26700FE96A8 /* Info.plist */,
 			);
 			path = stopwatchUITests;
+			sourceTree = "<group>";
+		};
+		ADC9B76023FF55D10038A9D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ADC9B76123FF55D10038A9D9 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

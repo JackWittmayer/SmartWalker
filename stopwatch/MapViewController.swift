@@ -13,10 +13,14 @@ class MapViewController: UIViewController {
     
     private let locationManager = CLLocationManager()
     private var currentCoordinate: CLLocationCoordinate2D?
+    
+    private var destintations: [MKPointAnnotation] = []
+    private var currentRoute: MKRoute?
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLocationServices()
+        mapView.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -60,7 +64,51 @@ class MapViewController: UIViewController {
         let zoomRegion = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
         mapView.setRegion(zoomRegion, animated: true)
     }
+    
+    private func addAnnotations() {
+        let chickfilaAnnotation = MKPointAnnotation()
+        chickfilaAnnotation.title = "Chick-Fil-A"
+        chickfilaAnnotation.coordinate = CLLocationCoordinate2D(latitude: 29.647371, longitude:  -82.342457)
+        
+        let freshFoodAnnotation = MKPointAnnotation()
+        freshFoodAnnotation.title = "Fresh Food Company"
+        freshFoodAnnotation.coordinate = CLLocationCoordinate2D(latitude: 29.647462, longitude: -82.34289)
+        
+        destintations.append(chickfilaAnnotation)
+        destintations.append(freshFoodAnnotation)
+        
+        mapView.addAnnotation(chickfilaAnnotation)
+        mapView.addAnnotation(freshFoodAnnotation)
+    }
+    private func constructRoute(userLocation: CLLocationCoordinate2D)
+    {
+        let directionsRequest = MKDirections.Request()
+        directionsRequest.source = MKMapItem(placemark: MKPlacemark(coordinate: userLocation))
+        directionsRequest.destination = MKMapItem(placemark: MKPlacemark(coordinate: destintations[0].coordinate))
+        directionsRequest.requestsAlternateRoutes = true
+        directionsRequest.transportType = .walking
+        
+        let directions = MKDirections(request: directionsRequest)
+        directions.calculate { [weak self] (directionsResponse, error) in
+            guard let strongSelf = self else {return}
+            
+            if let error = error
+            {
+                print(error.localizedDescription)
+            }
+            else if let response = directionsResponse, response.routes.count > 0
+            {
+                strongSelf.currentRoute = response.routes[0]
+                
+                strongSelf.mapView.addOverlay(response.routes[0].polyline)
+                strongSelf.mapView.setVisibleMapRect(response.routes[0].polyline.boundingMapRect, animated: true)
+            }
+            
+        }
+        
+    }
 }
+
 
 extension MapViewController: CLLocationManagerDelegate
 {
@@ -72,6 +120,8 @@ extension MapViewController: CLLocationManagerDelegate
         if currentCoordinate == nil
         {
             zoomToLatestLocation(with: latestLocation.coordinate)
+            addAnnotations()
+            constructRoute(userLocation: latestLocation.coordinate)
         }
         currentCoordinate = latestLocation.coordinate
     }
@@ -82,5 +132,47 @@ extension MapViewController: CLLocationManagerDelegate
         {
             beginLocationUpdates(locationManager: manager)
         }
+    }
+}
+
+extension MapViewController: MKMapViewDelegate
+{
+    
+    func mapView(_ _mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer
+    {
+        guard let currentRoute = currentRoute else {
+            return MKOverlayRenderer()
+        }
+        let polyLineRenderer = MKPolylineRenderer(polyline: currentRoute.polyline)
+        polyLineRenderer.strokeColor = UIColor.orange
+        polyLineRenderer.lineWidth = 5
+        return polyLineRenderer
+    }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
+    {
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "Annotation View")
+        if annotationView == nil
+        {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
+        }
+        
+        if let title = annotation.title, title == "Fresh Food Company"
+        {
+            annotationView?.image = resizeImage(image: UIImage(named: "running_icon")!, targetSize: CGSize(width: 50.0,height: 50.0))
+        }
+        else if let title = annotation.title, title == "Chick-Fil-A"
+        {
+            annotationView?.image = resizeImage(image: UIImage(named: "biking_icon")!, targetSize: CGSize(width: 50.0,height: 50.0))
+        }
+        else if annotation === mapView.userLocation
+        {
+            annotationView?.image = resizeImage(image: UIImage(named: "walking_icon")!, targetSize: CGSize(width: 50.0,height: 50.0))
+        }
+        
+        annotationView?.canShowCallout = true
+        return annotationView
+    }
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print("the annotation was selected: \(view.annotation?.title)")
     }
 }
