@@ -14,7 +14,7 @@ class MapViewController: UIViewController {
     private let locationManager = CLLocationManager()
     private var currentCoordinate: CLLocationCoordinate2D?
     
-    private var destintations: [MKPointAnnotation] = []
+    private var destinations: [MKPointAnnotation] = []
     private var currentRoute: MKRoute?
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
@@ -74,8 +74,8 @@ class MapViewController: UIViewController {
         freshFoodAnnotation.title = "Fresh Food Company"
         freshFoodAnnotation.coordinate = CLLocationCoordinate2D(latitude: 29.647462, longitude: -82.34289)
         
-        destintations.append(chickfilaAnnotation)
-        destintations.append(freshFoodAnnotation)
+        destinations.append(chickfilaAnnotation)
+        destinations.append(freshFoodAnnotation)
         
         mapView.addAnnotation(chickfilaAnnotation)
         mapView.addAnnotation(freshFoodAnnotation)
@@ -84,7 +84,7 @@ class MapViewController: UIViewController {
     {
         let directionsRequest = MKDirections.Request()
         directionsRequest.source = MKMapItem(placemark: MKPlacemark(coordinate: userLocation))
-        directionsRequest.destination = MKMapItem(placemark: MKPlacemark(coordinate: destintations[0].coordinate))
+        directionsRequest.destination = MKMapItem(placemark: MKPlacemark(coordinate: destinations[0].coordinate))
         directionsRequest.requestsAlternateRoutes = true
         directionsRequest.transportType = .walking
         

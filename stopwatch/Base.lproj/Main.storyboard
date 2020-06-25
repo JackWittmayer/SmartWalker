@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CSR-4e-zUB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CSR-4e-zUB">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -242,12 +242,12 @@
                         <outlet property="carButton" destination="6iH-uy-wTH" id="CUh-VL-8QI"/>
                         <outlet property="nameTextField" destination="CgL-19-cvK" id="Btl-DV-zol"/>
                         <outlet property="pauseButton" destination="Rtm-gw-xg3" id="0xP-UE-RkZ"/>
-                        <outlet property="runButton" destination="gfF-Ic-wet" id="Et7-Wf-3Xu"/>
+                        <outlet property="runButton" destination="MdY-Ba-D0b" id="8wI-4J-MPc"/>
                         <outlet property="saveButton" destination="0F5-wA-Faf" id="bqu-CY-mzq"/>
                         <outlet property="skateboardButton" destination="nW5-Jv-ZoZ" id="3Wl-Wm-G03"/>
                         <outlet property="startButton" destination="3qa-pj-FaI" id="J2y-G7-d15"/>
                         <outlet property="timeLabel" destination="9a6-Rl-mD3" id="G0p-4l-MOY"/>
-                        <outlet property="walkButton" destination="MdY-Ba-D0b" id="2V6-ar-8dr"/>
+                        <outlet property="walkButton" destination="gfF-Ic-wet" id="YnM-qf-jsf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -289,37 +289,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pqR-ch-piH">
-                                <rect key="frame" x="10" y="118" width="345" height="526.66666666666663"/>
+                                <rect key="frame" x="10" y="118" width="345" height="527.66666666666663"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Route Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gYz-XW-6Tw">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="23"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="24"/>
                                         <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Point" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4P-2C-5tQ">
-                                        <rect key="frame" x="0.0" y="33" width="345" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="34" width="345" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="example: home" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZBk-bi-o4m">
-                                        <rect key="frame" x="0.0" y="63.333333333333343" width="345" height="34"/>
+                                        <rect key="frame" x="0.0" y="64.333333333333343" width="345" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="location"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Point" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xis-Bz-0cY">
-                                        <rect key="frame" x="0.0" y="107.33333333333334" width="345" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="108.33333333333334" width="345" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="example: the park" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yg6-Cd-d8z">
-                                        <rect key="frame" x="0.0" y="137.66666666666666" width="345" height="34"/>
+                                        <rect key="frame" x="0.0" y="138.66666666666669" width="345" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="location"/>
                                     </textField>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="2UI-fk-0LW">
-                                        <rect key="frame" x="0.0" y="181.66666666666669" width="345" height="345.00000000000006"/>
+                                        <rect key="frame" x="0.0" y="182.66666666666669" width="345" height="345.00000000000006"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="2UI-fk-0LW" secondAttribute="height" multiplier="1:1" id="669-5K-WCr"/>
@@ -470,7 +470,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8W-dD-0ON" userLabel="WalkTimeLabel">
-                                                    <rect key="frame" x="22" y="0.0" width="36" height="20.333333333333332"/>
+                                                    <rect key="frame" x="22" y="0.0" width="2" height="20.333333333333332"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="vLq-Pa-0u0"/>
                                                     </constraints>
@@ -479,13 +479,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="running_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ygm-7E-61S">
-                                                    <rect key="frame" x="58" y="0.0" width="22" height="20.333333333333332"/>
+                                                    <rect key="frame" x="24" y="0.0" width="22" height="20.333333333333332"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="22" id="LiA-Dy-3yJ"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiH-wf-1m8" userLabel="RunTimeLabel">
-                                                    <rect key="frame" x="80" y="0.0" width="2" height="20.333333333333332"/>
+                                                    <rect key="frame" x="46" y="0.0" width="36" height="20.333333333333332"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="EH2-dZ-Uk8"/>
                                                     </constraints>
@@ -500,7 +500,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8N-7N-YcT" userLabel="SkateboardTimeLabel">
-                                                    <rect key="frame" x="108.66666666666666" y="0.0" width="36" height="20.333333333333332"/>
+                                                    <rect key="frame" x="108.66666666666666" y="0.0" width="2" height="20.333333333333332"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="CJZ-SJ-idd"/>
                                                     </constraints>
@@ -509,13 +509,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="biking_icon" translatesAutoresizingMaskIntoConstraints="NO" id="d6X-6G-AnL">
-                                                    <rect key="frame" x="144.66666666666666" y="0.0" width="26.666666666666657" height="20.333333333333332"/>
+                                                    <rect key="frame" x="110.66666666666666" y="0.0" width="26.666666666666657" height="20.333333333333332"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="22" id="8tm-Pi-A5d"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oN-YM-hbj" userLabel="BikeTimeLabel">
-                                                    <rect key="frame" x="171.33333333333331" y="0.0" width="2" height="20.333333333333332"/>
+                                                    <rect key="frame" x="137.33333333333334" y="0.0" width="36" height="20.333333333333332"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="tRs-7l-jLO"/>
                                                     </constraints>
@@ -672,6 +672,11 @@
             <point key="canvasLocation" x="275.36231884057975" y="369.64285714285711"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="BZO-J1-fOK"/>
+        <segue reference="gWa-nu-htw"/>
+        <segue reference="YFq-ZD-K1W"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="biking_icon" width="880.5" height="600"/>
         <image name="defaultPhoto" width="540" height="540"/>
@@ -680,9 +685,4 @@
         <image name="skateboarding_icon" width="880.5" height="600"/>
         <image name="walking_icon" width="880.5" height="600"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="BZO-J1-fOK"/>
-        <segue reference="gWa-nu-htw"/>
-        <segue reference="YFq-ZD-K1W"/>
-    </inferredMetricsTieBreakers>
 </document>
